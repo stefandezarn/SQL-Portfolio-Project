@@ -20,7 +20,8 @@ SELECT
 FROM
     orders
 ```
-   [1.pdf](https://github.com/stefandezarn/SQL-Portfolio-Project/files/10925588/1.pdf)
+<img width="175" alt="Screenshot 2023-03-08 at 2 55 46 PM" src="https://user-images.githubusercontent.com/116113763/223860753-ac7dd64d-113a-419d-9794-22e7eb9e65b2.png">
+
  
 ```
 --Mean, median, min and max of order totals
