@@ -12,13 +12,16 @@ After importing the CSV files, I created the database with the following schema:
 Once the database was built, I could start exploring the data and answering business questions via querying. I used this opportunity to imagine what information a stakeholder might request. As the data analyst for this fictional pizzeria, I came up with ad-hoc query code to provide this information.
 
 ## Let's look at the distribution of total order cost. How many orders are in our database? What is the mean, median, minimum and maximum order total?
-`--Total number of orders
+```
+--Total number of orders
 SELECT
     COUNT(DISTINCT  order_id) as total_orders
 FROM
-    orders`
+    orders
+```
     
-`--Mean, median, min and max of order totals
+```
+--Mean, median, min and max of order totals
 with order_totals as (
 SELECT 
     od.order_id,
@@ -34,5 +37,6 @@ SELECT
     MIN(order_total) as minimum_order_total,
     MAX(order_total) as maximum_order_total
 FROM
-    order_totals`
+    order_totals
+```
 
