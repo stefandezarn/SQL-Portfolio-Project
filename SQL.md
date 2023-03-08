@@ -34,5 +34,5 @@ SELECT
     MIN(order_total) as minimum_order_total,
     MAX(order_total) as maximum_order_total
 FROM
-    order_totals;`
+    order_totals`
 
