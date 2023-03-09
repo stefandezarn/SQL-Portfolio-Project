@@ -130,6 +130,7 @@ GROUP BY
 ORDER BY
     SUM(od.quantity) DESC
 ```
+<img width="652" alt="Screenshot 2023-03-08 at 6 31 17 PM" src="https://user-images.githubusercontent.com/116113763/223892510-72f363a7-6e2a-481a-981f-8435f0348e8a.png">
 
 ```
 -- When 10 or more pizzas are ordered together, special delivery accomodations must be made. What percentage of the orders required these accomdations?
@@ -148,6 +149,7 @@ SELECT
 FROM
     m1
 ```
+<img width="237" alt="Screenshot 2023-03-08 at 6 31 45 PM" src="https://user-images.githubusercontent.com/116113763/223892576-956ee959-c077-437a-8bb1-27081a7bac2e.png">
 
 ```
 -- In order to prepare for these large orders, we need to know when they occur. What is the distribution of order times for these large orders?
@@ -171,6 +173,7 @@ GROUP BY
     DATEPART(hour,time)
 ORDER BY 1
 ```
+<img width="281" alt="Screenshot 2023-03-08 at 6 36 46 PM" src="https://user-images.githubusercontent.com/116113763/223892872-c9351dab-881e-46e7-9fa4-1e885c1e11cf.png">
 
 ```
 -- What hours are the most popular?
@@ -185,6 +188,7 @@ GROUP BY
 ORDER BY
     2 DESC
 ```
+<img width="258" alt="Screenshot 2023-03-08 at 6 32 42 PM" src="https://user-images.githubusercontent.com/116113763/223892934-e7013aa1-9779-419d-9bd8-dcf252357823.png">
 
 ```
 -- Show monthly revenue and percentage change in revenue month over month.
@@ -206,3 +210,4 @@ SELECT
     , ROUND(((revenue - LAG(revenue, 1) OVER(ORDER BY month))/LAG(revenue, 1) OVER(ORDER BY month))*100, 2) pct_chng_in_rev
 FROM t1
 ```
+<img width="376" alt="Screenshot 2023-03-08 at 6 33 09 PM" src="https://user-images.githubusercontent.com/116113763/223892981-e2255c56-6415-4fce-8a54-c5f5fcd844bd.png">
