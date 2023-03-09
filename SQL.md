@@ -48,26 +48,7 @@ FROM
 ```
 <img width="568" alt="Screenshot 2023-03-08 at 2 56 17 PM" src="https://user-images.githubusercontent.com/116113763/223891490-435cedc1-57e4-46df-91d2-693191e70ef0.png">
 
-### Produce a list of every ingredient we use and the corresponding number of pizzas ordered which include that ingredient.
-```
 
-WITH m1 as (
-SELECT
-    *
-FROM
-    order_details od 
-    JOIN pizzas p on od.pizza_id = p.pizza_id 
-    JOIN pizza_types pt on p.pizza_type_id = pt.pizza_type_id
-)
-
-, M2 as (
-    SELECT
-    i
-)
-
-SELECT ingredients
-FROM pizza_types
-```
 
 ### Produce a list of every pizza type, the total quantity of those pizzas ordered and a popularity rank based on the total quantity ordered.
 ```
