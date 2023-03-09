@@ -43,6 +43,7 @@ SELECT
 FROM
     order_totals
 ```
+<img width="568" alt="Screenshot 2023-03-08 at 2 56 17 PM" src="https://user-images.githubusercontent.com/116113763/223891490-435cedc1-57e4-46df-91d2-693191e70ef0.png">
 
 ```
 -- We need to order ingredients, list every ingredient and how many pizzas were ordered this year with that indgredient
@@ -81,6 +82,7 @@ GROUP BY
 ORDER BY
     SUM(od.quantity) DESC
 ```
+<img width="467" alt="Screenshot 2023-03-08 at 3 04 52 PM" src="https://user-images.githubusercontent.com/116113763/223891560-b68b278e-695b-440c-9756-65f9237f4b43.png">
 
 ```
 -- Chicken Shortage
@@ -95,6 +97,7 @@ FROM
 WHERE
     ingredients LIKE '%Chicken%'
 ```
+<img width="190" alt="Screenshot 2023-03-08 at 3 06 21 PM" src="https://user-images.githubusercontent.com/116113763/223891653-8c9ba0ca-697a-47e2-a05f-a07450290d58.png">
 
 ```
 -- What is the monthly distribution of orders ?
@@ -107,6 +110,7 @@ GROUP BY
     FORMAT(date, 'yyyy-MM')
 ORDER BY 1 
 ```
+<img width="265" alt="Screenshot 2023-03-08 at 3 07 47 PM" src="https://user-images.githubusercontent.com/116113763/223891704-7a793476-1a93-4875-9f61-cadc5459105f.png">
 
 ```
 -- What are the most popular pizza catergories? What are the associated revenues?
