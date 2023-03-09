@@ -11,7 +11,7 @@ After importing the CSV files, I created the database with the following schema:
 
 Once the database was built, I could start exploring the data and answering business questions via querying. I used this opportunity to imagine what information a stakeholder might request. As the data analyst for this fictional pizzeria, I came up with ad-hoc query code to provide this information.
 
-## Let's look at the distribution of total order cost. How many orders are in our database? What is the mean, median, minimum and maximum order total?
+### Let's look at the distribution of total order cost. How many orders are in our database? What is the mean, median, minimum and maximum order total?
 ```
 --Total number of orders
 
@@ -45,8 +45,8 @@ FROM
 ```
 <img width="568" alt="Screenshot 2023-03-08 at 2 56 17 PM" src="https://user-images.githubusercontent.com/116113763/223891490-435cedc1-57e4-46df-91d2-693191e70ef0.png">
 
+### Produce a list of every ingredient we use and the corresponding number of pizzas ordered which include that ingredient.
 ```
--- We need to order ingredients, list every ingredient and how many pizzas were ordered this year with that indgredient
 
 WITH m1 as (
 SELECT
@@ -66,8 +66,8 @@ SELECT ingredients
 FROM pizza_types
 ```
 
+### Produce a list of every pizza type, the total quantity of those pizzas ordered and a popularity rank based on the total quantity ordered.
 ```
--- What is the popularity ranking of the pizza types?
 
 SELECT
     pt.name,
@@ -84,8 +84,8 @@ ORDER BY
 ```
 <img width="467" alt="Screenshot 2023-03-08 at 3 04 52 PM" src="https://user-images.githubusercontent.com/116113763/223891560-b68b278e-695b-440c-9756-65f9237f4b43.png">
 
+### A Supplier has alerted us to a possible future chicken shortage, how many orders would have been affected by such a shortage.
 ```
--- Chicken Shortage
 
 SELECT
     COUNT(DISTINCT od.order_id) num_of_orders
@@ -99,8 +99,9 @@ WHERE
 ```
 <img width="190" alt="Screenshot 2023-03-08 at 3 06 21 PM" src="https://user-images.githubusercontent.com/116113763/223891653-8c9ba0ca-697a-47e2-a05f-a07450290d58.png">
 
+### How are the number of orders distributed across the months of the year?
 ```
--- What is the monthly distribution of orders ?
+
 SELECT
     FORMAT(date, 'yyyy-MM') month,
     COUNT(DISTINCT order_id) num_of_orders
@@ -112,8 +113,8 @@ ORDER BY 1
 ```
 <img width="265" alt="Screenshot 2023-03-08 at 3 07 47 PM" src="https://user-images.githubusercontent.com/116113763/223891704-7a793476-1a93-4875-9f61-cadc5459105f.png">
 
+### What are the most popular pizza catergories? What are the associated revenues? Create rankings for both quantity sold and revenue from that category.
 ```
--- What are the most popular pizza catergories? What are the associated revenues?
 
 SELECT
     pt.category,
@@ -132,8 +133,8 @@ ORDER BY
 ```
 <img width="652" alt="Screenshot 2023-03-08 at 6 31 17 PM" src="https://user-images.githubusercontent.com/116113763/223892510-72f363a7-6e2a-481a-981f-8435f0348e8a.png">
 
+### When 10 or more pizzas are ordered together, special delivery accomodations must be made. What percentage of the orders required these accomdations?
 ```
--- When 10 or more pizzas are ordered together, special delivery accomodations must be made. What percentage of the orders required these accomdations?
 
 with m1 as (
 SELECT
@@ -151,8 +152,8 @@ FROM
 ```
 <img width="237" alt="Screenshot 2023-03-08 at 6 31 45 PM" src="https://user-images.githubusercontent.com/116113763/223892576-956ee959-c077-437a-8bb1-27081a7bac2e.png">
 
+### In order to prepare for these large orders, we need to know when they occur. What is the distribution of order times for these large orders?
 ```
--- In order to prepare for these large orders, we need to know when they occur. What is the distribution of order times for these large orders?
 
 with m1 as (
 SELECT
@@ -175,8 +176,8 @@ ORDER BY 1
 ```
 <img width="281" alt="Screenshot 2023-03-08 at 6 36 46 PM" src="https://user-images.githubusercontent.com/116113763/223892872-c9351dab-881e-46e7-9fa4-1e885c1e11cf.png">
 
+### How are total orders distributed across the hours of the day?
 ```
--- What hours are the most popular?
 
 SELECT
     DATEPART(hour,time) hour,
@@ -190,8 +191,8 @@ ORDER BY
 ```
 <img width="258" alt="Screenshot 2023-03-08 at 6 32 42 PM" src="https://user-images.githubusercontent.com/116113763/223892934-e7013aa1-9779-419d-9bd8-dcf252357823.png">
 
+### Provide monthly revenues and percentage changes in revenue month over month.
 ```
--- Show monthly revenue and percentage change in revenue month over month.
 
 WITH t1 as (
 SELECT
